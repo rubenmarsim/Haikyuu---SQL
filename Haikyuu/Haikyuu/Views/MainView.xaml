@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Haikyuu.Views.MainView"
+             Title="Lista DC">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="OnItemAdded">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="Android, UWP" Value="plus.png" />
+                </OnPlatform>
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                BackgroundColor="#313445">
+                <Label x:Name="Name" 
+                       FontSize="Large"
+                       Text="Name"
+                       TextColor="Orange"
+                       Margin="20"
+                       />
+
+                <Label Text="Posición"
+                       FontSize="Large"
+                       BackgroundColor="Orange"
+                       TextColor="#313445"
+                       />
+
+                <Label x:Name="Location"
+                       FontSize="Medium"
+                       Text="Location"
+                       TextColor="White"
+                       Margin="15"
+                       />
+
+                <Label Text="Detalles"
+                       FontSize="Large"
+                       BackgroundColor="Orange"
+                       TextColor="#313445"
+                       />
+
+                <Label x:Name="Details"
+                       Text="Details"
+                       FontSize="Medium"
+                       TextColor="White"
+                       Margin="15"
+                       />
+
+                <!-- Puntuacion -->
+                <Label Text="Puntuación"
+                       FontSize="Large"
+                       BackgroundColor="Orange"
+                       TextColor="#313445"
+                       />
+
+                <Slider x:Name="sliderPuntuacion" 
+                        Margin="20"
+                        Maximum="10"
+                        Minimum="0"
+                        ThumbColor="White"
+                        />
+
+                <Label x:Name="numPuntuacion"
+                       FontSize="35"
+                       TextColor="White"
+                       Margin="170, 0, 0, 20"
+                       />
+                
+                <Image x:Name="Foto"
+                       Aspect="AspectFill"
+                       WidthRequest="380"
+                       MinimumHeightRequest="500"
+                       />
+
+                <!--Comentarios-->
+                <Label Text="Comentarios"
+                       FontSize="Large"
+                       BackgroundColor="Orange"
+                       TextColor="#313445"
+                       />
+                <ListView x:Name="listView" Margin="20" ItemSelected="OnListItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding Name}" 
+                                           VerticalTextAlignment="Center" 
+                                           HorizontalOptions="StartAndExpand" 
+                                           FontSize="Medium"
+                                           TextColor="White"
+                                           />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
